@@ -7,6 +7,6 @@ describe('Fixnum#numbers') do
   end
 
   it('Turns two digits into written words') do
-    expect((12).numbers()).to(eq("twelve"))
+    expect((20).numbers()).to(eq("twenty"))
   end
 end

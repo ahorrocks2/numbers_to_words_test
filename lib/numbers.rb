@@ -13,8 +13,12 @@ class Fixnum
     else
       split_number_tens = self./(10)
       split_number_ones = self.%10
-      final_english.push(tens_digit.fetch(split_number_tens))
-      final_english.push(ones_digit.fetch(split_number_ones))
+        if split_number_ones == 0
+          final_english.push(tens_digit.fetch(split_number_tens))
+        else
+          final_english.push(tens_digit.fetch(split_number_tens))
+          final_english.push(ones_digit.fetch(split_number_ones))
+        end
     end
     final_english.join(" ")
   end
