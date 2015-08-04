@@ -14,12 +14,19 @@ class Fixnum
     elsif self > 99 && self < 1000
       split_number_hundreds = self./(100)
       temp_tens = self.%100
-      split_number_tens = temp_tens./(10)
-      split_number_ones = self.%10
-      
-      final_english.push(hundreds_digit.fetch(split_number_hundreds))
-      final_english.push(tens_digit.fetch(split_number_tens))
-      final_english.push(ones_digit.fetch(split_number_ones))
+        if temp_tens == 0
+          final_english.push(hundreds_digit.fetch(split_number_hundreds))
+        elsif temp_tens > 10 && temp_tens < 20
+          final_english.push(hundreds_digit.fetch(split_number_hundreds))
+          final_english.push(teens.fetch(temp_tens))
+        else
+          split_number_tens = temp_tens./(10)
+          split_number_ones = self.%10
+
+          final_english.push(hundreds_digit.fetch(split_number_hundreds))
+          final_english.push(tens_digit.fetch(split_number_tens))
+          final_english.push(ones_digit.fetch(split_number_ones))
+        end
     else
       split_number_tens = self./(10)
       split_number_ones = self.%10

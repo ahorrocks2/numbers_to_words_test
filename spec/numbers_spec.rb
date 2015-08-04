@@ -11,6 +11,6 @@ describe('Fixnum#numbers') do
   end
 
   it('Turns three digits into written words') do
-    expect((384).numbers()).to(eq("three hundred eighty four"))
+    expect((314).numbers()).to(eq("three hundred fourteen"))
   end
 end
